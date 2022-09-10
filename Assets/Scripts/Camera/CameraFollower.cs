@@ -19,7 +19,7 @@ namespace CameraScripts
 		public Transform Target => target;
 		public Vector3 Offset => offset;
 
-		private void Update()
+		private void LateUpdate()
 		{
 			if (_canMove)
 			{
