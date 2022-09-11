@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using BallScripts;
 using UnityEngine;
 
+[RequireComponent(typeof(BallRoller))]
 public class Ball : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	public event Action OnMouseButtonDown;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private BallRoller _roller;
+
+	private void Awake()
+	{
+		_roller = GetComponent<BallRoller>();
+	}
+
+	private void OnMouseDown()
+	{
+		OnMouseButtonDown?.Invoke();
+	}
+
+	public void Push(Vector2 direction, float force)
+	{
+		_roller.Push(direction, force);
+	}
 }

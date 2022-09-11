@@ -21,9 +21,10 @@ namespace BallScripts
 			DecreaseSpeed();
 		}
 
-		public void Push (Vector3 direction, float speed)
+		public void Push (Vector2 direction, float speed)
 		{
-			_moveDirection = direction;
+			_moveDirection.x = direction.x;
+			_moveDirection.z = direction.y;
 			_speed = speed;
 			_isMovingNow = true;
 		}
